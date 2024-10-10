@@ -1,5 +1,6 @@
 const mineflayer = require('mineflayer')
 const fs = require('fs');
+const http = require('http');
 let rawdata = fs.readFileSync('config.json');
 let data = JSON.parse(rawdata);
 var lasttime = -1;
@@ -51,6 +52,16 @@ bot.on('time', function() {
             }
         }
     }
+});
+
+// Tworzenie serwera HTTP na porcie 8080
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Bot Minecraft działa!\n');
+});
+
+server.listen(8080, () => {
+  console.log('Serwer HTTP działa na porcie 8080');
 });
 
 bot.on('spawn',function() {
