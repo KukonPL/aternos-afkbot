@@ -54,14 +54,14 @@ bot.on('time', function() {
     }
 });
 
-// Tworzenie serwera HTTP na porcie 8080
+// Tworzenie serwera HTTP na porcie 8090
 const server = http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('Bot Minecraft działa!\n');
 });
 
-server.listen(8080, () => {
-  console.log('Serwer HTTP działa na porcie 8080');
+server.listen(8090, () => {
+  console.log('Serwer HTTP działa na porcie 8090');
 });
 
 bot.on('spawn',function() {
